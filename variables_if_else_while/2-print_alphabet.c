@@ -2,6 +2,9 @@
 
 /*
  * main - go
+ *
+ * description - betty my betty
+ *
  */
 int main(void)
 {
