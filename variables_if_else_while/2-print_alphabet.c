@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-/*
+/**
  * main - go
  *
  * description - betty my betty
