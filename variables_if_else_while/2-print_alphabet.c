@@ -3,8 +3,7 @@
 /**
  * main - go
  *
- * description - betty my betty
- *
+ * Return: betty my betty
  */
 int main(void)
 {
