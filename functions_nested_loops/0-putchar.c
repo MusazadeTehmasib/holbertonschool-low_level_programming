@@ -1,19 +1,21 @@
-#include <stdio.h>
-#include <string.h>
+#include "main.h"
 
 /**
- * main - print thing
+ * main - wok
  *
- * Return: 0 babyboi
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
-	char a[] = "_putchar";
+	_putchar('_');
+	_putchar('p');
+	_putchar('u');
+	_putchar('t');
+	_putchar('c');
+	_putchar('h');
+	_putchar('a');
+	_putchar('r');
+	_putchar('\n');
 
-	for (int i = 0; i <= strlen(a); i++)
-	{
-		putchar(a[i]);
-	}
-	putchar('\n');
 	return (0);
 }
