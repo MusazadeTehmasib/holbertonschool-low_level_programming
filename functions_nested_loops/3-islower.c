@@ -4,7 +4,7 @@
  * _islower - i will kill betty
  * @c: char to chec
  *
- * Description: baldnsadasjd
+ * @return: baldnsadasjd
  */
 int _islower(int c)
 {
