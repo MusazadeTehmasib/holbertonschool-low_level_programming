@@ -2,6 +2,7 @@
 
 /**
  * _islower - i will kill betty
+ * @c: char to chec
  *
  * Description: baldnsadasjd
  */
