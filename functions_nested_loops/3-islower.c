@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * _islower - i will kill betty
+ * _islower - i will hug  betty
  * @c: char to chec
  *
- * @return: baldnsadasjd
+ * Return: baldnsadasjd
  */
 int _islower(int c)
 {
