@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * main - alhpabeta
+ * print_alphabet - alhpabeta
  *
  * Return: endelss void
  */
