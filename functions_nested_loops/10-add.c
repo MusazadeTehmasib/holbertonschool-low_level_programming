@@ -3,7 +3,7 @@
 /**
  * add - code
  * @a: sec
- * @b: first 
+ * @b: f
  *
  * Return: sum
  */
