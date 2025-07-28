@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * main - upper check
+ * _isupper - upper check
  *
  * Return: 1 or 0
  */
