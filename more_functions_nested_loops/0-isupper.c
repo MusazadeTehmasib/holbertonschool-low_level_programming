@@ -2,6 +2,7 @@
 
 /**
  * _isupper - upper check
+ * @c: idk
  *
  * Return: 1 or 0
  */
