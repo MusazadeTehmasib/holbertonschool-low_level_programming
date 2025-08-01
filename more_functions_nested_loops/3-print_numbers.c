@@ -7,11 +7,8 @@
 void print_numbers(void)
 {
 	char nums[] = "0123456789\n";
-	int i = 0;
+	int i;
 
-	while (nums[i] != '\0')
-	{
+	for (i = 0; nums[i] != '\0'; i++)
 		_putchar(nums[i]);
-		i++;
-	}
 }
