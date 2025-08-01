@@ -10,8 +10,10 @@ void most_numbers(void)
 	int i;
 	int z;
 
-	for (z = 0; z <= 4; z++)
-		for (i = 0; nums[i] != '\0'; i++)
+	for (z = 0; z <= 4; z++){
+		for (i = 0; nums[i] != '\0'; i++){
 			_putchar(nums[i]);
+		}
 		_putchar('\n');
+	}
 }
