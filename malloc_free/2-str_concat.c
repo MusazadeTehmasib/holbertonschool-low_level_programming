@@ -3,7 +3,7 @@
 
 /**
  * my_len - length of a string
- * @s: tring
+ * @s: string
  *
  * Return: Length of the string
  */
@@ -22,7 +22,7 @@ unsigned int my_len(char *s)
  * @s1: First string
  * @s2: Second string
  *
- * Return: Pointe
+ * Return: Pointer
  */
 
 char *str_concat(char *s1, char *s2)
@@ -48,4 +48,4 @@ char *str_concat(char *s1, char *s2)
 
 	new_str[i + j] = '\0';
 	return (new_str);
-} 
+}

@@ -6,7 +6,7 @@
  * Description: Each element of the grid should be initialized to 0.
  * @width: w
  * @height: h
- * Return: Pointer 
+ * Return: Pointer
  */
 
 int **alloc_grid(int width, int height)
