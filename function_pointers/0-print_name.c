@@ -8,7 +8,7 @@ void print_name(char *name, void (*f)(char *)){
 
 }
 
-void print_uppercase(char *name){
+void print_name_uppercase(char *name){
 	int i = 0;
 
 	printf("Hello, my name is ");
