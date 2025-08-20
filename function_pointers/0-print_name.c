@@ -4,6 +4,7 @@
 /**
  * print_name - prints
  * @name: name of the person
+ * @f: func lists in main.c
  *
  * Return: Nothing.
  */
