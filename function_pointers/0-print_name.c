@@ -9,6 +9,7 @@ void print_name(char *name, void (*f)(char *)){
 	
 	
 	if (name != NULL && f == NULL){
+		printf("Hello, my name is ");
 		while (name[i]){
 			putchar(toupper(name[i]));
 			i++;	
