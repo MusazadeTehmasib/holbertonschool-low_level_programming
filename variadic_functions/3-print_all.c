@@ -17,7 +17,7 @@ void print_all(const char * const format, ...)
 
 	while (p && *p)
 	{
-		/* Only 1 if for valid types and separator */
+		/* First if: check for valid type and handle separator */
 		if (*p == 'c' || *p == 'i' || *p == 'f' || *p == 's')
 		{
 			if (sep)
@@ -31,13 +31,14 @@ void print_all(const char * const format, ...)
 				printf("%f", va_arg(args, double));
 			if (*p == 's')
 			{
+				/* Second if: handle NULL strings */
 				str = va_arg(args, char *);
-				if (!str) /* second if statement */
+				if (!str)
 					str = "(nil)";
 				printf("%s", str);
 			}
 
-			sep = 1; /* only for valid types */
+			sep = 1; /* set separator only for valid types */
 		}
 		p++;
 	}
