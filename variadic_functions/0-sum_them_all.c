@@ -15,12 +15,10 @@ int sum_them_all(const unsigned int n, ...)
 
 	if (n == 0)
 		return (0);
-	
 	va_start(task0, n);
 
 	for (i = 0; i < n; i++)
 		sum += va_arg(task0, int);
-	
 	va_end(task0);
 	return (sum);
 }
