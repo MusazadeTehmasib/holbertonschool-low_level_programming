@@ -15,30 +15,29 @@ void print_all(const char * const format, ...)
 	va_list args;
 	int i = 0, sep = 0;
 	char *str;
+	char valid;
 
 	va_start(args, format);
 
 	while (format && format[i])
 	{
+		valid = 1;
 		switch (format[i])
 		{
 			case 'c':
 				if (sep)
 					printf(", ");
 				printf("%c", va_arg(args, int));
-				sep = 1;
 				break;
 			case 'i':
 				if (sep)
 					printf(", ");
 				printf("%d", va_arg(args, int));
-				sep = 1;
 				break;
 			case 'f':
 				if (sep)
 					printf(", ");
 				printf("%f", va_arg(args, double));
-				sep = 1;
 				break;
 			case 's':
 				if (sep)
@@ -47,11 +46,12 @@ void print_all(const char * const format, ...)
 				if (!str)
 					str = "(nil)";
 				printf("%s", str);
-				sep = 1;
 				break;
 			default:
-				break; /* ignore invalid characters */
+				valid = 0; /* ignore invalid types */
 		}
+		if (valid)
+			sep = 1; /* only update sep for valid types */
 		i++;
 	}
 
