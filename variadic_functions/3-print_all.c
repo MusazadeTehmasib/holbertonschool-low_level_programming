@@ -13,10 +13,12 @@
 void print_all(const char * const format, ...)
 {
 	va_list args;
-	int i = 0, sep = 0;
+	int i = 0;
+	int sep = 0;
 	char *str;
 
 	va_start(args, format);
+
 	while (format && format[i])
 	{
 		switch (format[i])
@@ -43,7 +45,9 @@ void print_all(const char * const format, ...)
 				if (sep)
 					printf(", ");
 				str = va_arg(args, char *);
-				printf("%s", str ? str : "(nil)");
+				if (!str)
+					str = "(nil)";
+				printf("%s", str);
 				sep = 1;
 				break;
 			default:
@@ -51,6 +55,7 @@ void print_all(const char * const format, ...)
 		}
 		i++;
 	}
+
 	printf("\n");
 	va_end(args);
 }
