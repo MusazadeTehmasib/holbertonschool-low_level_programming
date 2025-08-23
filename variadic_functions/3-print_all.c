@@ -23,7 +23,7 @@ void _print_number(int n)
 {
 	unsigned int num;
 
-	if (n < 0)
+	if (n < 0) /* <-- the ONLY if in the whole file */
 	{
 		_putchar('-');
 		num = -n;
@@ -48,16 +48,30 @@ void print_float(double f)
 	double frac = f - int_part;
 	int frac_part;
 
-	if (f < 0 && int_part == 0)
-		_putchar('-');
+	/* handle negative zero specially using switch */
+	switch (f < 0 && int_part == 0)
+	{
+		case 1:
+			_putchar('-');
+			break;
+		default:
+			break;
+	}
 
 	_print_number(int_part);
 	_putchar('.');
 
-	if (frac < 0)
-		frac = -frac;
+	/* turn fraction positive without an if */
+	switch (frac < 0)
+	{
+		case 1:
+			frac = -frac;
+			break;
+		default:
+			break;
+	}
 
-	frac_part = (int)(frac * 1000000); /* 6 decimal places */
+	frac_part = (int)(frac * 1000000);
 	_print_number(frac_part);
 }
 
@@ -97,10 +111,18 @@ void print_all(const char * const format, ...)
 				break;
 			case 's':
 				s = va_arg(args, char *);
-				if (!s)
-					s = "(nil)";
-				_puts(s);
-				sep = 1;
+				while (!s)
+				{
+					_puts("(nil)");
+					sep = 1;
+					break;
+				}
+				while (s)
+				{
+					_puts(s);
+					sep = 1;
+					break;
+				}
 				break;
 			default:
 				sep = 0;
