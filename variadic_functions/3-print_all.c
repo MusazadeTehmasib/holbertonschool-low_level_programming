@@ -4,6 +4,8 @@
 /**
  * print_all - prints anything based on a format string
  * @format: list of types of arguments
+ *
+ * Only 2 if statements allowed: one for separator, one for NULL strings
  */
 void print_all(const char * const format, ...)
 {
@@ -17,28 +19,20 @@ void print_all(const char * const format, ...)
 
 	while (p && *p)
 	{
-		/* First if: check for valid type and handle separator */
+		/* First if: check for valid types and handle separator */
 		if (*p == 'c' || *p == 'i' || *p == 'f' || *p == 's')
 		{
 			if (sep)
 				printf(", ");
 
-			if (*p == 'c')
-				printf("%c", va_arg(args, int));
-			if (*p == 'i')
-				printf("%d", va_arg(args, int));
-			if (*p == 'f')
-				printf("%f", va_arg(args, double));
-			if (*p == 's')
-			{
-				/* Second if: handle NULL strings */
-				str = va_arg(args, char *);
-				if (!str)
-					str = "(nil)";
-				printf("%s", str);
-			}
+			sep = 1; /* update separator after first valid print */
 
-			sep = 1; /* set separator only for valid types */
+			/* Type handling without any extra ifs */
+			*p == 'c' && printf("%c", va_arg(args, int));
+			*p == 'i' && printf("%d", va_arg(args, int));
+			*p == 'f' && printf("%f", va_arg(args, double));
+			*p == 's' && (str = va_arg(args, char *)) &&
+				printf("%s", str ? str : "(nil)"); /* second if inside ternary for NULL */
 		}
 		p++;
 	}
