@@ -8,7 +8,7 @@
 void print_all(const char * const format, ...)
 {
 	va_list args;
-	int i = 0, sep = 0;
+	int sep = 0;
 	char *str;
 	const char *p;
 
@@ -17,21 +17,27 @@ void print_all(const char * const format, ...)
 
 	while (p && *p)
 	{
-		/* Only one if for valid separator */
+		/* Only 1 if for valid types and separator */
 		if (*p == 'c' || *p == 'i' || *p == 'f' || *p == 's')
 		{
 			if (sep)
 				printf(", ");
 
-			/* Print value based on type */
-			(*p == 'c') && printf("%c", va_arg(args, int));
-			(*p == 'i') && printf("%d", va_arg(args, int));
-			(*p == 'f') && printf("%f", va_arg(args, double));
-			(*p == 's') &&
-				(str = va_arg(args, char *)) &&
-				printf("%s", str ? str : "(nil)");
+			if (*p == 'c')
+				printf("%c", va_arg(args, int));
+			if (*p == 'i')
+				printf("%d", va_arg(args, int));
+			if (*p == 'f')
+				printf("%f", va_arg(args, double));
+			if (*p == 's')
+			{
+				str = va_arg(args, char *);
+				if (!str) /* second if statement */
+					str = "(nil)";
+				printf("%s", str);
+			}
 
-			sep = 1;
+			sep = 1; /* only for valid types */
 		}
 		p++;
 	}
