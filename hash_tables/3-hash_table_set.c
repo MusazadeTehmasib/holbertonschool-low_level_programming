@@ -10,8 +10,6 @@
  *
  * Return: 1 if it succeeded, 0 otherwise
  */
-
-
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
@@ -26,9 +24,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (0);
 
 	index = key_index((const unsigned char *)key, ht->size);
-	temp = ht->array[index];
-
-	while (temp)
+	for (temp = ht->array[index]; temp; temp = temp->next)
 	{
 		if (strcmp(temp->key, key) == 0)
 		{
@@ -36,7 +32,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			temp->value = value_copy;
 			return (1);
 		}
-		temp = temp->next;
 	}
 
 	new_node = malloc(sizeof(hash_node_t));
